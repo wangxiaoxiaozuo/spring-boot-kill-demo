@@ -35,14 +35,9 @@ public class GeneratorConfigData {
     private String moduleName = "user";
 
     /**
-     * 项目名称
+     * 生成的包存储位置项目名称
      */
     private String projectName = "/kill-auto-generator";
-
-    /**
-     *
-     */
-    private String projectPath = "spring-boot-kill-demo";
 
     /**
      * 署名
