@@ -49,7 +49,7 @@ import java.util.TimeZone;
 @ConditionalOnClass(ObjectMapper.class)
 @AutoConfigureBefore(JacksonAutoConfiguration.class)
 @Slf4j
-public class HealthWebAutoConfiguration {
+public class WebAutoConfiguration {
 
 
     @Bean("jackson2ObjectMapperBuilderCustomizer")

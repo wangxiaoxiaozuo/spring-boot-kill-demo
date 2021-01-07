@@ -8,6 +8,7 @@
         <version>1.0.0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
     <description>
         1. 秒杀项目web端自动配置文件
         2. 引入该配置文件后 即可自动配置Swagger,快速校验等功能
@@ -15,7 +16,7 @@
         4. actuator 端点监控
     </description>
 
-    <artifactId>kill-auto-config-starter</artifactId>
+    <artifactId>kill-auto-web-config-starter</artifactId>
 
     <dependencies>
         <!-- 自动注入 start-->
@@ -55,5 +56,6 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>

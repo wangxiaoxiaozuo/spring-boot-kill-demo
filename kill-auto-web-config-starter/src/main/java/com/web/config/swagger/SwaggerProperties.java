@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2020/10/21 11:10:01
  */
 @Configuration
-@ConfigurationProperties(prefix = "lr.swagger")
+@ConfigurationProperties(prefix = "web.swagger")
 @Data
 public class SwaggerProperties {
 

@@ -11,5 +11,23 @@
 
     <artifactId>kill-core</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>wj.demo</groupId>
+            <artifactId>kill-auto-web-config-starter</artifactId>
+            <version>1.0.0.0.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>kill-core</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

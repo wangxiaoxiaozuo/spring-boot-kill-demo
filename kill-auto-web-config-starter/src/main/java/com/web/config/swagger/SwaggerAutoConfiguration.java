@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @since 2020/10/21 11:14:35
  */
 @Configuration
-@ConditionalOnProperty(prefix = "lr.swagger", value = "enabled", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "web.swagger", value = "enabled", matchIfMissing = true)
 @EnableSwagger2
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerAutoConfiguration {

@@ -27,14 +27,14 @@ public class GeneratorConfigData {
     /**
      * 项目前缀
      */
-//    private String patentPath = "wj.com";
-    private String patentPath = "com.lrhealth";
+    private String patentPath = "com.kill";
+//    private String patentPath = "com.lrhealth";
 
     /**
      * 模块名称
      */
 //    private String moduleName = "user";
-    private String moduleName = "version";
+    private String moduleName = "core";
 
     /**
      * 生成的包存储位置项目名称
