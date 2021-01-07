@@ -7,7 +7,7 @@ import lombok.Getter;
 /**
  * 具体错误响应参考
  *
- * @author limin
+ * @author wangjian
  * @date 2019/04/27
  */
 @Getter

@@ -1,9 +1,7 @@
-package com.kill.core.entity.vo;
+package com.kill.core.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -22,36 +20,51 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="ProjectPathVO对象", description="")
-public class ProjectPathVO implements Serializable {
+public class ProjectPath implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "path_id", type = IdType.AUTO)
     private Integer pathId;
 
-    @ApiModelProperty(value = "所属环境")
+    /**
+     * 所属环境
+     */
     private String pathEnv;
 
-    @ApiModelProperty(value = "路径名称")
+    /**
+     * 路径名称
+     */
     private String pathName;
 
-    @ApiModelProperty(value = "路径")
+    /**
+     * 路径
+     */
     private String path;
 
-    @ApiModelProperty(value = "图片路径")
+    /**
+     * 图片路径
+     */
     private String imagePath;
 
-    @ApiModelProperty(value = "路径描述")
+    /**
+     * 路径描述
+     */
     private String pathDesc;
 
-    @ApiModelProperty(value = "创建时间")
+    /**
+     * 创建时间
+     */
     private LocalDateTime createTime;
 
-    @ApiModelProperty(value = "修改时间")
+    /**
+     * 修改时间
+     */
     private LocalDateTime updateTime;
 
-    @ApiModelProperty(value = "删除标识0未删除1已删除")
+    /**
+     * 删除标识0未删除1已删除
+     */
     private Boolean delFlag;
 
 

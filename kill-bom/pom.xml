@@ -30,6 +30,7 @@
         <freemarker.version>2.3.29</freemarker.version>
         <swagger.version>2.9.2</swagger.version>
         <knife4j.swagger.version>2.0.2</knife4j.swagger.version>
+        <project-starter.version>1.0.0.0.1</project-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -98,6 +99,18 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>wj.demo</groupId>
+                <artifactId>kill-auto-web-config-starter</artifactId>
+                <version>${project-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>wj.demo</groupId>
+                <artifactId>kill-auto-mybatis-config-starter</artifactId>
+                <version>${project-starter.version}</version>
             </dependency>
 
 
