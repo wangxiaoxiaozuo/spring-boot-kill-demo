@@ -28,6 +28,8 @@
         <hutool.version>4.6.1</hutool.version>
         <lombok.version>1.18.12</lombok.version>
         <freemarker.version>2.3.29</freemarker.version>
+        <swagger.version>2.9.2</swagger.version>
+        <knife4j.swagger.version>2.0.2</knife4j.swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -71,6 +73,12 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
             <!--    工具类     -->
 
             <dependency>
@@ -84,12 +92,12 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-
+            <!--  swagger 版本管理 -->
 
             <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>${freemarker.version}</version>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.swagger.version}</version>
             </dependency>
 
 

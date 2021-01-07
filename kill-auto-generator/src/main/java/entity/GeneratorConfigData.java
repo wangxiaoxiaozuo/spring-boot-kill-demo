@@ -23,16 +23,18 @@ public class GeneratorConfigData {
     /**
      * 表名称
      */
-    private String[] tableNames = new String[]{"kill_user"};
+    private String[] tableNames = new String[]{"project_path"};
     /**
      * 项目前缀
      */
-    private String patentPath = "wj.com";
+//    private String patentPath = "wj.com";
+    private String patentPath = "com.lrhealth";
 
     /**
      * 模块名称
      */
-    private String moduleName = "user";
+//    private String moduleName = "user";
+    private String moduleName = "version";
 
     /**
      * 生成的包存储位置项目名称

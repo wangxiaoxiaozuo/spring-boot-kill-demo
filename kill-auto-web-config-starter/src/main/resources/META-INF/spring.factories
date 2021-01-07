@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.health.common.config.validator.ValidatorAutoConfiguration,\
+com.health.common.config.common.HealthWebAutoConfiguration,\
+com.health.common.config.swagger.SwaggerAutoConfiguration

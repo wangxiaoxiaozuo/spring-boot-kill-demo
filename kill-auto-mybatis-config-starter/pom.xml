@@ -8,9 +8,16 @@
         <version>1.0.0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <description>秒杀项目自动配置文件</description>
 
-    <artifactId>kill-auto-config-starter</artifactId>
+    <artifactId>kill-auto-mybatis-config-starter</artifactId>
+    <description>
+        1. 引入该依赖后即可获得mybatis自动配置 如 分页配置
+    </description>
+
+    <dependencies>
+
+
+    </dependencies>
 
 
 </project>
