@@ -7,3 +7,9 @@ web:
   swagger:
     base-package-path: com.kill.core.controller
     tittle: '秒杀核心模块'
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: kill-core

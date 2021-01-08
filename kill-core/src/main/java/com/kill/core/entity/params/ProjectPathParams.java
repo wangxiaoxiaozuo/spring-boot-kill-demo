@@ -1,6 +1,7 @@
 package com.kill.core.entity.params;
 
 
+import com.common.data.entity.PageParams;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel(value="ProjectPathVO对象", description="")
-public class ProjectPathParams implements Serializable {
+public class ProjectPathParams extends PageParams implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
