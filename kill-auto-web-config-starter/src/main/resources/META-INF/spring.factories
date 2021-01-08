@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.web.config.validator.ValidatorAutoConfiguration,\
 com.web.config.common.WebAutoConfiguration,\
-com.web.config.swagger.SwaggerAutoConfiguration
+com.web.config.swagger.SwaggerAutoConfiguration,\
+com.web.config.exception.GlobalExceptionHandlerAutoConfiguration
