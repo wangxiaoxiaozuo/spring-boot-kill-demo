@@ -1,9 +1,11 @@
 package com.kill.core.controller;
 
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.common.data.entity.BizException;
+import com.kill.core.annotation.IpLimit;
 import com.kill.core.entity.ProjectPath;
 import com.kill.core.entity.params.ProjectPathParams;
 import com.kill.core.service.IProjectPathService;
@@ -31,9 +33,11 @@ public class ProjectPathController {
 
     @GetMapping
     @ApiOperation("查询")
+    @IpLimit
     public IPage<ProjectPath> getDataByPage(@Validated ProjectPathParams pathParams) {
-        throw new BizException("这是测试异常");
-//        return projectPathService.page(new Page<>(pathParams.getPageNum(), pathParams.getPageSize()));
+//        throw new BizException("这是测试异常");
+//        BeanUtil.toBean()
+        return projectPathService.page(new Page<>(pathParams.getPageNum(), pathParams.getPageSize()));
     }
 
 
