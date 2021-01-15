@@ -13,3 +13,6 @@ spring:
     active: local
   application:
     name: kill-core
+  mvc:
+    async:
+      request-timeout: 200000
