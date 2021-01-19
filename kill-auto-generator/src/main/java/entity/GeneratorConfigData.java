@@ -23,18 +23,20 @@ public class GeneratorConfigData {
     /**
      * 表名称
      */
-    private String[] tableNames = new String[]{"project_path"};
+    private String[] tableNames = new String[]{"choose_cadre", "choose_person"};
     /**
      * 项目前缀
      */
-    private String patentPath = "com.kill";
+//    private String patentPath = "com.kill";
 //    private String patentPath = "com.lrhealth";
+    private String patentPath = "com.health";
 
     /**
      * 模块名称
      */
 //    private String moduleName = "user";
-    private String moduleName = "core";
+//    private String moduleName = "core";
+    private String moduleName = "result";
 
     /**
      * 生成的包存储位置项目名称
@@ -49,7 +51,8 @@ public class GeneratorConfigData {
     /**
      * 数据库连接
      */
-    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/kill-demo?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+//    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/kill-demo?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/ocr_data?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
 
     /**
      * 数据库驱动
