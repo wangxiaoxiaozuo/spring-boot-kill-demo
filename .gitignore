@@ -13,8 +13,6 @@ target/
 .springBeans
 .sts4-cache
 
-health-user-service/health-user-service.iml
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -28,8 +26,6 @@ health-user-service/health-user-service.iml
 /nbdist/
 /.nb-gradle/
 build/
-health-code-generator/**
 
 ### VS Code ###
 .vscode/
-log.path_IS_UNDEFINED/**
