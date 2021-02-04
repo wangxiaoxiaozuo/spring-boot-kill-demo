@@ -21,6 +21,8 @@
         <module>kill-core</module>
         <module>kill-auto-mybatis-config-starter</module>
         <module>kill-common-data</module>
+        <module>kill-core-2</module>
+        <module>kill-common-api</module>
     </modules>
 
     <dependencyManagement>

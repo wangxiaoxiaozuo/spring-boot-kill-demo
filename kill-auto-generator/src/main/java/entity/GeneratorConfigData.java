@@ -23,18 +23,18 @@ public class GeneratorConfigData {
     /**
      * 表名称
      */
-    private String[] tableNames = new String[]{"choose_cadre", "choose_person"};
+    private String[] tableNames = new String[]{"his_recipe_drug"};
     /**
      * 项目前缀
      */
-    private String patentPath = "com.kill";
+//    private String patentPath = "com.kill";
 //    private String patentPath = "com.lrhealth";
-//    private String patentPath = "com.health";
+    private String patentPath = "com.health";
 
     /**
      * 模块名称
      */
-    private String moduleName = "user";
+    private String moduleName = "further";
 //    private String moduleName = "core";
 //    private String moduleName = "result";
 
@@ -52,7 +52,8 @@ public class GeneratorConfigData {
      * 数据库连接
      */
 //    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/kill-demo?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
-    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/ocr_data?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+//    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/ocr_data?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+    private String dataSourceUrl = "jdbc:p6spy:mysql://120.221.160.3:33061/new_ihp_further?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
 
     /**
      * 数据库驱动
@@ -62,12 +63,14 @@ public class GeneratorConfigData {
     /**
      * 数据库用户名
      */
-    private String dataSourceUserName = "root";
+//    private String dataSourceUserName = "root";
+    private String dataSourceUserName = "developer";
 
     /**
      * 数据库密码
      */
-    private String dataSourcePassword = "123456";
+    private String dataSourcePassword = "w&VMZ2CXJ$@*kAz^";
+//    private String dataSourcePassword = "123456";
 
     /**
      * 模板文件存储位置

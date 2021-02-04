@@ -1,7 +1,7 @@
 server:
-  port: 9001
+  port: 9002
   servlet:
-    context-path: '/kill'
+    context-path: '/kill2'
 
 web:
   swagger:
@@ -12,23 +12,20 @@ spring:
   profiles:
     active: local
   application:
-    name: kill-core
-  mvc:
-    async:
-      request-timeout: 200000
+    name: kill-core-service-2
   cloud:
       nacos:
           discovery:
               server-addr: localhost:8848
 dubbo:
     scan:
-        base-packages: com.kill.core
+        base-packages: com.kill.core.service.impl.rpc
     protocol:
         name: dubbo
         port: -1
         serialization: kryo
     cloud:
-        subscribed-services: kill-core-service-2
+        subscribed-services: ""
     consumer:
         check: false
     provider:

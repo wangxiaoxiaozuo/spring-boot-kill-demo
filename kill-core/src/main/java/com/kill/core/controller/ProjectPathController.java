@@ -41,4 +41,11 @@ public class ProjectPathController {
     }
 
 
+    @GetMapping("/test")
+    @ApiOperation("dubbo接口测试")
+    public String testDubbo() {
+        return projectPathService.testDubbo();
+    }
+
+
 }

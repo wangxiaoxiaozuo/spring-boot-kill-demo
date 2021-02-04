@@ -13,4 +13,6 @@ import com.kill.core.entity.ProjectPath;
  */
 public interface IProjectPathService extends IService<ProjectPath> {
 
+    String testDubbo();
+
 }

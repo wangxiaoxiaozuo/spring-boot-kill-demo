@@ -56,7 +56,7 @@ public class SwaggerAutoConfiguration {
 
         return new Docket(DocumentationType.SWAGGER_2)
             .enable(swaggerProperties.getEnable())
-            .pathMapping(visitPath)
+//            .pathMapping(visitPath)
 //            .globalOperationParameters(parameters)
             .select()
             .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackagePath()))

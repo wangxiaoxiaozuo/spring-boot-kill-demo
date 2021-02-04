@@ -25,6 +25,7 @@
         <swagger.version>2.9.2</swagger.version>
         <knife4j.swagger.version>2.0.2</knife4j.swagger.version>
         <project-starter.version>1.0.0.0.1</project-starter.version>
+        <dubbo-kryo.version>2.7.2</dubbo-kryo.version>
     </properties>
 
     <dependencyManagement>
