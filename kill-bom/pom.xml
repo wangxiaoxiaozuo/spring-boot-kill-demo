@@ -26,6 +26,7 @@
         <knife4j.swagger.version>2.0.2</knife4j.swagger.version>
         <project-starter.version>1.0.0.0.1</project-starter.version>
         <dubbo-kryo.version>2.7.2</dubbo-kryo.version>
+        <servlet.version>2.5</servlet.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +113,12 @@
                 <groupId>wj.demo</groupId>
                 <artifactId>kill-common-data</artifactId>
                 <version>${project-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.version}</version>
             </dependency>
 
         </dependencies>

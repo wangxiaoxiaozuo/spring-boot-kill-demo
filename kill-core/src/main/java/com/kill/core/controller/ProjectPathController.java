@@ -1,6 +1,8 @@
 package com.kill.core.controller;
 
 
+import cn.hutool.captcha.CaptchaUtil;
+import cn.hutool.captcha.LineCaptcha;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -17,6 +19,9 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * <p>
@@ -60,6 +65,23 @@ public class ProjectPathController {
     public String sendSubMessage(@PathVariable String openId) {
         pubMessageService.sendSubMessage(openId);
         return "发送成功！！！！！";
+    }
+
+
+    public static void main(String[] args) {
+//        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
+//        lineCaptcha.write("/Users/wangjian/Desktop/line.png");
+//        System.out.println(lineCaptcha.getCode());
+
+        System.out.println(Math.round(-1.5));
+    }
+
+
+    @GetMapping("/line/code")
+    public void getCreateLineCaptcha(HttpServletResponse response) throws IOException {
+        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
+        lineCaptcha.write(response.getOutputStream());
+        System.out.println(lineCaptcha.getCode());
     }
 
 }

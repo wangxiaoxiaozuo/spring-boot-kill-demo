@@ -1,10 +1,7 @@
 package com.kill.core.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import com.kill.core.constant.PushMessageConstant;
-import com.kill.core.entity.PushMessageParams;
 import com.kill.core.entity.WeChatToken;
 import com.kill.core.service.PubMessageService;
 import lombok.AllArgsConstructor;
@@ -53,7 +50,7 @@ public class PubMessageServiceImpl implements PubMessageService {
 
     }
 
-    public void sendMessage(String params, String url) {
+    private void sendMessage(String params, String url) {
         HttpHeaders headers = new HttpHeaders();
         MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
         headers.setContentType(type);

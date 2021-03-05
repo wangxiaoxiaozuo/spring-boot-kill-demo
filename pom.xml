@@ -23,6 +23,7 @@
         <module>kill-common-data</module>
         <module>kill-core-2</module>
         <module>kill-common-api</module>
+        <module>kill-gateway</module>
     </modules>
 
     <dependencyManagement>
