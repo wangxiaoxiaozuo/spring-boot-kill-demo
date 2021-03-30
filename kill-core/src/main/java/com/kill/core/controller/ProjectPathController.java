@@ -3,13 +3,10 @@ package com.kill.core.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
-import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.common.data.entity.BizException;
 import com.kill.core.annotation.IpLimit;
 import com.kill.core.entity.ProjectPath;
-import com.kill.core.entity.PushMessageParams;
 import com.kill.core.entity.params.ProjectPathParams;
 import com.kill.core.properties.DrugProperties;
 import com.kill.core.service.IProjectPathService;
@@ -19,6 +16,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -67,21 +65,32 @@ public class ProjectPathController {
         return "发送成功！！！！！";
     }
 
-
-    public static void main(String[] args) {
-//        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
-//        lineCaptcha.write("/Users/wangjian/Desktop/line.png");
-//        System.out.println(lineCaptcha.getCode());
-
-        System.out.println(Math.round(-1.5));
+    @PostMapping("/bloom/filter/test")
+    public String importHospitalExcel(@RequestParam("file") MultipartFile file,
+                                      @RequestParam String schoolName) {
+        return pubMessageService.importHospitalExcelFile(file, schoolName);
     }
+
+    @GetMapping("/order/number")
+    public String createOrderNumber(){
+        return pubMessageService.createOrderNumber();
+    }
+
+
+//    public static void main(String[] args) {
+////        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
+////        lineCaptcha.write("/Users/wangjian/Desktop/line.png");
+////        System.out.println(lineCaptcha.getCode());
+//
+//        System.out.println(Math.round(-1.5));
+//    }
 
 
     @GetMapping("/line/code")
     public void getCreateLineCaptcha(HttpServletResponse response) throws IOException {
         LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
         lineCaptcha.write(response.getOutputStream());
-        System.out.println(lineCaptcha.getCode());
     }
+
 
 }
