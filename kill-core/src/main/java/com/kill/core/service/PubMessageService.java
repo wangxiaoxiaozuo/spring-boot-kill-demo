@@ -2,6 +2,8 @@ package com.kill.core.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+
 public interface PubMessageService {
 
 
@@ -16,4 +18,6 @@ public interface PubMessageService {
     String importHospitalExcelFile(MultipartFile file, String schoolName);
 
     String createOrderNumber();
+
+    void exportBatchErrorExcel(HttpServletResponse response, String batchNum);
 }

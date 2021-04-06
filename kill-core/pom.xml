@@ -37,7 +37,15 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-<!--        <dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/cn.stylefeng.roses/pinyin-sdk-pinyin4j -->
+        <dependency>
+            <groupId>cn.stylefeng.roses</groupId>
+            <artifactId>pinyin-sdk-pinyin4j</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+
+        <!--        <dependency>-->
 <!--            <groupId>com.alibaba.cloud</groupId>-->
 <!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
 <!--        </dependency>-->

@@ -3,8 +3,13 @@ package com.kill.core.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
+import cn.stylefeng.roses.kernel.pinyin.PinyinServiceImpl;
+import cn.stylefeng.roses.kernel.pinyin.api.PinYinApi;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.base.Charsets;
+import com.google.common.hash.BloomFilter;
+import com.google.common.hash.Funnels;
 import com.kill.core.annotation.IpLimit;
 import com.kill.core.entity.ProjectPath;
 import com.kill.core.entity.params.ProjectPathParams;
@@ -14,6 +19,7 @@ import com.kill.core.service.PubMessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,6 +39,7 @@ import java.io.IOException;
 @RequestMapping("/core/project")
 @Api(tags = "项目管理")
 @AllArgsConstructor
+@Slf4j
 public class ProjectPathController {
 
     private IProjectPathService projectPathService;
@@ -77,13 +84,22 @@ public class ProjectPathController {
     }
 
 
-//    public static void main(String[] args) {
-////        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
-////        lineCaptcha.write("/Users/wangjian/Desktop/line.png");
-////        System.out.println(lineCaptcha.getCode());
+    public static void main(String[] args) {
+//        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
+//        lineCaptcha.write("/Users/wangjian/Desktop/line.png");
+//        System.out.println(lineCaptcha.getCode());
 //
 //        System.out.println(Math.round(-1.5));
-//    }
+//
+//        PinYinApi pinYinApi = new PinyinServiceImpl();
+//        String s = pinYinApi.getChineseStringFirstLetterUpper("北京市");
+//        System.out.println(s);
+
+        BloomFilter<CharSequence> bloomFilter = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), 200000, 1E-7);
+        System.out.println(bloomFilter.mightContain("wangjian"));
+    }
+
+
 
 
     @GetMapping("/line/code")
@@ -91,6 +107,18 @@ public class ProjectPathController {
         LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
         lineCaptcha.write(response.getOutputStream());
     }
+
+
+    @PostMapping("/export/{batchNum}")
+    @ApiOperation(value = "导出错误Excel")
+    public void exportBatchErrorExcel(HttpServletResponse response, @PathVariable String batchNum) {
+        pubMessageService.exportBatchErrorExcel(response, batchNum);
+    }
+
+
+
+
+
 
 
 }

@@ -1,7 +1,12 @@
 package com.kill.core.service.impl;
 
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
+import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
+import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.google.common.base.Charsets;
@@ -9,11 +14,13 @@ import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
 import com.kill.core.constant.BatchOrderConstant;
 import com.kill.core.constant.PushMessageConstant;
+import com.kill.core.entity.BatchSchoolErrorExcel;
 import com.kill.core.entity.BatchSchoolExcel;
 import com.kill.core.entity.WeChatToken;
 import com.kill.core.service.PubMessageService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,10 +30,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -118,6 +129,37 @@ public class PubMessageServiceImpl implements PubMessageService {
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("解析数据异常");
+        }
+    }
+
+    @Override
+    public void exportBatchErrorExcel(HttpServletResponse response, String batchNum) {
+        List<BatchSchoolErrorExcel> list = new ArrayList<>();
+        BatchSchoolErrorExcel batchSchoolErrorExcel = new BatchSchoolErrorExcel()
+            .setAuditFailReason("---")
+            .setCityName("--")
+            .setCountryName("--")
+            .setProvinceName("--")
+            .setSchoolAddress("---");
+        list.add(batchSchoolErrorExcel);
+        // 设置Excel名称
+        String excelName = batchNum + "错误数据";
+        ExportParams exportParams = new ExportParams();
+        exportParams.setTitle(excelName);
+        exportParams.setSheetName(excelName);
+        exportParams.setType(ExcelType.XSSF);
+        Workbook sheets = ExcelExportUtil
+            .exportExcel(exportParams, BatchSchoolErrorExcel.class, list);
+        try {
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/octet-stream");
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Content-disposition",
+                "attachment;filename=" + URLEncoder.encode("excelName.xlsx", "UTF-8"));
+            sheets.write(response.getOutputStream());
+        } catch (IOException e) {
+            log.info("导出错误数据异常：{}", e.getMessage());
+            throw new RuntimeException("导出错误数据异常");
         }
     }
 }
