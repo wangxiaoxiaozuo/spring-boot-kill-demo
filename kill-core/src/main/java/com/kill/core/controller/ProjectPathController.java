@@ -3,29 +3,32 @@ package com.kill.core.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
-import cn.stylefeng.roses.kernel.pinyin.PinyinServiceImpl;
-import cn.stylefeng.roses.kernel.pinyin.api.PinYinApi;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.google.common.base.Charsets;
-import com.google.common.hash.BloomFilter;
-import com.google.common.hash.Funnels;
 import com.kill.core.annotation.IpLimit;
 import com.kill.core.entity.ProjectPath;
 import com.kill.core.entity.params.ProjectPathParams;
+import com.kill.core.entity.params.WordSimilarParams;
 import com.kill.core.properties.DrugProperties;
 import com.kill.core.service.IProjectPathService;
 import com.kill.core.service.PubMessageService;
+import com.kill.core.utils.IpUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apdplat.word.WordSegmenter;
+import org.apdplat.word.analysis.SimpleTextSimilarity;
+import org.apdplat.word.segmentation.Word;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -48,61 +51,47 @@ public class ProjectPathController {
 
     private PubMessageService pubMessageService;
 
+    private static final String PATH = "/delete";
+
     @GetMapping
     @ApiOperation("查询")
     @IpLimit
     public IPage<ProjectPath> getDataByPage(@Validated ProjectPathParams pathParams) {
-//        throw new BizException("这是测试异常");
-//        BeanUtil.toBean()
         return projectPathService.page(new Page<>(pathParams.getPageNum(), pathParams.getPageSize()));
     }
 
 
     @GetMapping("/test")
-    @ApiOperation("dubbo接口测试")
+    @ApiOperation("Dubbo接口测试")
     public String testDubbo() {
         Integer delayTime = drugProperties.getDelayTime();
-        System.out.println(delayTime);
+        log.info("测试配置时间：{}", delayTime);
         return projectPathService.testDubbo();
     }
 
     @GetMapping("/sub/{openId}")
+    @ApiOperation("SpringBoot消息订阅测试")
     public String sendSubMessage(@PathVariable String openId) {
         pubMessageService.sendSubMessage(openId);
         return "发送成功！！！！！";
     }
 
     @PostMapping("/bloom/filter/test")
+    @ApiOperation("布隆过滤器测试")
     public String importHospitalExcel(@RequestParam("file") MultipartFile file,
                                       @RequestParam String schoolName) {
         return pubMessageService.importHospitalExcelFile(file, schoolName);
     }
 
     @GetMapping("/order/number")
-    public String createOrderNumber(){
+    @ApiOperation("Redis生成唯一订单号测试")
+    public String createOrderNumber() {
         return pubMessageService.createOrderNumber();
     }
 
 
-    public static void main(String[] args) {
-//        LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
-//        lineCaptcha.write("/Users/wangjian/Desktop/line.png");
-//        System.out.println(lineCaptcha.getCode());
-//
-//        System.out.println(Math.round(-1.5));
-//
-//        PinYinApi pinYinApi = new PinyinServiceImpl();
-//        String s = pinYinApi.getChineseStringFirstLetterUpper("北京市");
-//        System.out.println(s);
-
-        BloomFilter<CharSequence> bloomFilter = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), 200000, 1E-7);
-        System.out.println(bloomFilter.mightContain("wangjian"));
-    }
-
-
-
-
     @GetMapping("/line/code")
+    @ApiOperation("Hutool图形验证码测试")
     public void getCreateLineCaptcha(HttpServletResponse response) throws IOException {
         LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
         lineCaptcha.write(response.getOutputStream());
@@ -110,15 +99,28 @@ public class ProjectPathController {
 
 
     @PostMapping("/export/{batchNum}")
-    @ApiOperation(value = "导出错误Excel")
+    @ApiOperation("EasyPoi导出测试")
     public void exportBatchErrorExcel(HttpServletResponse response, @PathVariable String batchNum) {
         pubMessageService.exportBatchErrorExcel(response, batchNum);
     }
 
 
+    @DeleteMapping(PATH)
+    @ApiOperation("Word分词测试")
+    public void deleteByIds(@RequestBody List<Integer> schoolIds, HttpServletRequest request) {
+        System.out.println(schoolIds.toString());
+        System.out.println(request.getHeader("User-Agent"));
+        System.out.println(IpUtils.getIpAddr(request));
+        List<String> collect = WordSegmenter.seg("我叫李太白，我是一个诗人，我生活在唐朝").stream().map(Word::getText).collect(Collectors.toList());
+        System.out.println(collect.toString());
+    }
 
-
-
+    @PostMapping("/same")
+    @ApiOperation("Word词语相似度测试")
+    public Double getWordSimilar(@RequestBody WordSimilarParams params) {
+        SimpleTextSimilarity simpleTextSimilarity = new SimpleTextSimilarity();
+        return simpleTextSimilarity.similarScore(params.getWord1(), params.getWord2());
+    }
 
 
 }

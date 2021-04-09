@@ -41,4 +41,6 @@ his:
     order:
         # 分钟
         delayTime: 5
-
+logging:
+    level:
+        org.apdplat.word: error
