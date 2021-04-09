@@ -12,6 +12,8 @@ import com.kill.core.entity.params.WordSimilarParams;
 import com.kill.core.properties.DrugProperties;
 import com.kill.core.service.IProjectPathService;
 import com.kill.core.service.PubMessageService;
+import com.kill.core.service.UtilTestService;
+import com.kill.core.service.impl.process.entity.AnalysisResult;
 import com.kill.core.utils.IpUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -50,6 +53,8 @@ public class UtilTestController {
     private DrugProperties drugProperties;
 
     private PubMessageService pubMessageService;
+
+    private UtilTestService utilTestService;
 
     private static final String PATH = "/delete";
 
@@ -120,6 +125,13 @@ public class UtilTestController {
     public Double getWordSimilar(@RequestBody WordSimilarParams params) {
         SimpleTextSimilarity simpleTextSimilarity = new SimpleTextSimilarity();
         return simpleTextSimilarity.similarScore(params.getWord1(), params.getWord2());
+    }
+
+
+    @PostMapping("/analysis")
+    @ApiOperation("数据比对分解")
+    public AnalysisResult analysisDataList(MultipartFile file){
+        return utilTestService.analysisDataList(file);
     }
 
 

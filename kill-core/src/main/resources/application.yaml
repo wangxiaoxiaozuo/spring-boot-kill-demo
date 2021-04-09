@@ -16,26 +16,26 @@ spring:
   mvc:
     async:
       request-timeout: 200000
-  cloud:
-      nacos:
-          discovery:
-              server-addr: localhost:8848
-dubbo:
-    scan:
-        base-packages: com.kill.core
-    protocol:
-        name: dubbo
-        port: -1
-        serialization: kryo
-    cloud:
-        subscribed-services: kill-core-service-2
-    consumer:
-        check: false
-    provider:
-        loadbalance: roundrobin
-    registry:
-#        address: spring-cloud://${nacos.server}
-        address: spring-cloud://localhost:8848
+#  cloud:
+#      nacos:
+#          discovery:
+#              server-addr: localhost:8848
+#dubbo:
+#    scan:
+#        base-packages: com.kill.core
+#    protocol:
+#        name: dubbo
+#        port: -1
+#        serialization: kryo
+#    cloud:
+#        subscribed-services: kill-core-service-2
+#    consumer:
+#        check: false
+#    provider:
+#        loadbalance: roundrobin
+#    registry:
+##        address: spring-cloud://${nacos.server}
+#        address: spring-cloud://localhost:8848
 # 发送his的处方
 his:
     order:

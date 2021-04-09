@@ -2,9 +2,9 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-        url: jdbc:p6spy:mysql://192.167.180.4:33061/project_manager?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
-        username: developer
-        password: w&VMZ2CXJ$@*kAz^
+        url: jdbc:mysql://10.10.50.72:3306/train_project_center?generateSimpleParameterMetadata=true&amp&useSSL=false
+        username: srt_dt
+        password: t81Qxr2EZ8ws
         hikari:
             minimum-idle: 5
             idle-timeout: 600000

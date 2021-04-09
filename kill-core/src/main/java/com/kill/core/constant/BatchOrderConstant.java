@@ -13,4 +13,13 @@ package com.kill.core.constant;
 public class BatchOrderConstant {
 
     public static final String ORDER_NUMBER_REDIS_KEY = "TRAIN:PROJECT:CENTER:BATCH:ORDER";
+
+    /**
+     * 词语相似度比对
+     */
+    public static final double DEFAULT_LOAD_FACTOR = 0.8;
+
+
+
+
 }
