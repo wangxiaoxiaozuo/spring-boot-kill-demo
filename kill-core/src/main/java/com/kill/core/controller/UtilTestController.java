@@ -40,10 +40,10 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/core/project")
-@Api(tags = "项目管理")
+@Api(tags = "好用工具测试")
 @AllArgsConstructor
 @Slf4j
-public class ProjectPathController {
+public class UtilTestController {
 
     private IProjectPathService projectPathService;
 
@@ -54,7 +54,7 @@ public class ProjectPathController {
     private static final String PATH = "/delete";
 
     @GetMapping
-    @ApiOperation("查询")
+    @ApiOperation("MybatisPlus分页查询测试")
     @IpLimit
     public IPage<ProjectPath> getDataByPage(@Validated ProjectPathParams pathParams) {
         return projectPathService.page(new Page<>(pathParams.getPageNum(), pathParams.getPageSize()));
