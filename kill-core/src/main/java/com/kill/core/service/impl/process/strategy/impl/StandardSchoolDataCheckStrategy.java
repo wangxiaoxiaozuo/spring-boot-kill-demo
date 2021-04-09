@@ -4,6 +4,7 @@ import com.kill.core.constant.BatchOrderConstant;
 import com.kill.core.entity.BatchSchoolExcel;
 import com.kill.core.entity.TrainSchool;
 import com.kill.core.service.impl.process.entity.AnalysisResult;
+import com.kill.core.service.impl.process.entity.SimilarResult;
 import com.kill.core.service.impl.process.strategy.SchoolDataCheckStrategy;
 import lombok.extern.slf4j.Slf4j;
 import org.apdplat.word.analysis.SimpleTextSimilarity;
@@ -33,13 +34,18 @@ public class StandardSchoolDataCheckStrategy implements SchoolDataCheckStrategy 
     @Override
     public AnalysisResult check(List<BatchSchoolExcel> batchSchoolExcels) {
         SimpleTextSimilarity simpleTextSimilarity = new SimpleTextSimilarity();
-        List<String> mayHasErrorList = new ArrayList<>();
-        batchSchoolExcels.forEach(schoolExcelData -> trainSchools.forEach(trainSchool -> {
-            double similarScore = simpleTextSimilarity.similarScore(schoolExcelData.getSchoolName(), trainSchool.getSchoolName());
-            if (similarScore > BatchOrderConstant.DEFAULT_LOAD_FACTOR) {
-                mayHasErrorList.add(schoolExcelData.getSchoolName());
-            }
-        }));
+        List<SimilarResult> mayHasErrorList = new ArrayList<>();
+        trainSchools.forEach(
+            trainSchool -> batchSchoolExcels.forEach(schoolExcelData -> {
+                double similarScore = simpleTextSimilarity.similarScore(schoolExcelData.getSchoolName(), trainSchool.getSchoolName());
+                if (similarScore > BatchOrderConstant.DEFAULT_LOAD_FACTOR) {
+                    SimilarResult similarResult = new SimilarResult()
+                        .setWord(schoolExcelData.getSchoolName())
+                        .setSimilarScore(similarScore);
+                    mayHasErrorList.add(similarResult);
+                }
+            })
+        );
         return new AnalysisResult().setMayHaveErrorSchoolList(mayHasErrorList);
     }
 

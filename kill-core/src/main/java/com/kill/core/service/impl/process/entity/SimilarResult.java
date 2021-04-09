@@ -3,8 +3,6 @@ package com.kill.core.service.impl.process.entity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.List;
-
 /**
  * <pre>
  * +--------+---------+-----------+---------+
@@ -13,25 +11,19 @@ import java.util.List;
  * </pre>
  *
  * @author wangjian
- * @since 2021/04/09 09:37:57
+ * @since 2021/04/09 10:08:29
  */
-@Data
 @Accessors(chain = true)
-public class AnalysisResult {
+@Data
+public class SimilarResult {
 
     /**
-     * 包含错误的数据
+     * 相似词语
      */
-    private List<String> hasErrorSchoolList;
+    private String word;
 
     /**
-     * 可能包含错误的数据
+     * 相似分数值
      */
-    private List<SimilarResult> mayHaveErrorSchoolList;
-
-    /**
-     * 没有错误的数据
-     */
-    private List<String> noErrorSchoolList;
-
+    private double similarScore;
 }

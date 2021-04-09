@@ -6,7 +6,7 @@ server:
 web:
   swagger:
     base-package-path: com.kill.core.controller
-    tittle: '秒杀核心模块'
+    tittle: '工具测试服务'
 
 spring:
   profiles:
