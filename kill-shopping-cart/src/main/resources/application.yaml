@@ -1,25 +1,20 @@
 server:
-  port: 9001
+  port: 9003
   servlet:
-    context-path: '/kill'
+    context-path: '/cart'
 
 web:
   swagger:
     base-package-path: com.kill.core.controller
-    tittle: '工具测试服务'
+    tittle: '秒杀-购物车'
 
 spring:
   profiles:
     active: local
   application:
-    name: kill-core
-  mvc:
-    async:
-      request-timeout: 200000
+    name: kill-shopping-cart
   cloud:
       nacos:
           discovery:
               server-addr: localhost:8848
-logging:
-    level:
-        org.apdplat.word: error
+

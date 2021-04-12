@@ -21,7 +21,7 @@
         <module>kill-core</module>
         <module>kill-auto-mybatis-config-starter</module>
         <module>kill-common-data</module>
-        <module>kill-core-2</module>
+        <module>kill-shopping-cart</module>
         <module>kill-common-api</module>
         <module>kill-gateway</module>
     </modules>

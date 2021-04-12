@@ -8,7 +8,7 @@ package com.kill.core.service;
  * @author wangjian
  * @since 2021-01-07
  */
-public interface ITestDubboService {
+public interface IShoppingCartService {
 
-    String testDubbo();
+    String getShopList();
 }
