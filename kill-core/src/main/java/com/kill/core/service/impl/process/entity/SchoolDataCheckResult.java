@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class AnalysisResult {
+public class SchoolDataCheckResult {
 
     /**
      * 包含错误的数据

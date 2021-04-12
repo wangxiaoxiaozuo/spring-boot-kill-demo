@@ -1,13 +1,12 @@
 package com.kill.core.service.impl.process;
 
 import com.kill.core.entity.BatchSchoolExcel;
-import com.kill.core.service.impl.process.entity.AnalysisResult;
+import com.kill.core.service.impl.process.entity.SchoolDataCheckResult;
 import com.kill.core.service.impl.process.strategy.SchoolDataCheckStrategy;
 import com.kill.core.service.impl.process.utils.ReadSchoolDataExcelUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <pre>
@@ -34,7 +33,7 @@ public class SchoolDataCheckHandler {
      * mayHaveError : List<TrainSchoolDO>  校验中可能包含错误的数据
      * noError: List<TrainSchoolDO> 校验中不包含错误的数据
      */
-    public AnalysisResult process(MultipartFile file) {
+    public SchoolDataCheckResult process(MultipartFile file) {
         // 步骤一：文件上传至阿里云返回地址
         // 步骤二：Excel文件流解析
         List<BatchSchoolExcel> batchSchoolExcels = ReadSchoolDataExcelUtils.analysisExcelSchoolData(file);

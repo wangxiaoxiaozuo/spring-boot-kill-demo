@@ -17,7 +17,7 @@ public class BatchOrderConstant {
     /**
      * 词语相似度比对
      */
-    public static final double DEFAULT_LOAD_FACTOR = 0.8;
+    public static final double DEFAULT_LOAD_FACTOR = 0.6;
 
 
 

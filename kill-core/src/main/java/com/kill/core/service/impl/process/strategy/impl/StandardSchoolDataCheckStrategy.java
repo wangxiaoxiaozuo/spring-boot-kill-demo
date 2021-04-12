@@ -3,7 +3,7 @@ package com.kill.core.service.impl.process.strategy.impl;
 import com.kill.core.constant.BatchOrderConstant;
 import com.kill.core.entity.BatchSchoolExcel;
 import com.kill.core.entity.TrainSchool;
-import com.kill.core.service.impl.process.entity.AnalysisResult;
+import com.kill.core.service.impl.process.entity.SchoolDataCheckResult;
 import com.kill.core.service.impl.process.entity.SimilarResult;
 import com.kill.core.service.impl.process.strategy.SchoolDataCheckStrategy;
 import lombok.extern.slf4j.Slf4j;
@@ -32,21 +32,33 @@ public class StandardSchoolDataCheckStrategy implements SchoolDataCheckStrategy 
     }
 
     @Override
-    public AnalysisResult check(List<BatchSchoolExcel> batchSchoolExcels) {
+    public SchoolDataCheckResult check(List<BatchSchoolExcel> batchSchoolExcels) {
         SimpleTextSimilarity simpleTextSimilarity = new SimpleTextSimilarity();
         List<SimilarResult> mayHasErrorList = new ArrayList<>();
-        trainSchools.forEach(
-            trainSchool -> batchSchoolExcels.forEach(schoolExcelData -> {
-                double similarScore = simpleTextSimilarity.similarScore(schoolExcelData.getSchoolName(), trainSchool.getSchoolName());
-                if (similarScore > BatchOrderConstant.DEFAULT_LOAD_FACTOR) {
-                    SimilarResult similarResult = new SimilarResult()
-                        .setWord(schoolExcelData.getSchoolName())
-                        .setSimilarScore(similarScore);
-                    mayHasErrorList.add(similarResult);
+
+        for (BatchSchoolExcel schoolExcelData : batchSchoolExcels) {
+            double maxScore = 0;
+            String maxSimilarWord = "";
+            for (TrainSchool trainSchool : trainSchools) {
+                double similarScore = simpleTextSimilarity.similarScore(
+                    schoolExcelData.getSchoolName(),
+                    trainSchool.getSchoolName());
+                if (similarScore > maxScore) {
+                    maxScore = similarScore;
+                    maxSimilarWord = trainSchool.getSchoolName();
                 }
-            })
-        );
-        return new AnalysisResult().setMayHaveErrorSchoolList(mayHasErrorList);
+            }
+            if (maxScore >= BatchOrderConstant.DEFAULT_LOAD_FACTOR && maxScore < 1) {
+                SimilarResult similarResult = new SimilarResult()
+                    .setWord(schoolExcelData.getSchoolName())
+                    .setSimilarScore(maxScore)
+                    .setSimilarWord(maxSimilarWord);
+                mayHasErrorList.add(similarResult);
+                log.info("超过阈值：{},比对词语：{},相似词语为：{},相似分值：{}",
+                    BatchOrderConstant.DEFAULT_LOAD_FACTOR, schoolExcelData.getSchoolName(), maxSimilarWord, maxScore);
+            }
+        }
+        return new SchoolDataCheckResult().setMayHaveErrorSchoolList(mayHasErrorList);
     }
 
 

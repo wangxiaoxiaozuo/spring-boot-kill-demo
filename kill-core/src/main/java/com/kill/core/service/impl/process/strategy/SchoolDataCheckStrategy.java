@@ -1,10 +1,9 @@
 package com.kill.core.service.impl.process.strategy;
 
 import com.kill.core.entity.BatchSchoolExcel;
-import com.kill.core.service.impl.process.entity.AnalysisResult;
+import com.kill.core.service.impl.process.entity.SchoolDataCheckResult;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <pre>
@@ -19,6 +18,6 @@ import java.util.Map;
 public interface SchoolDataCheckStrategy {
 
 
-    AnalysisResult check(List<BatchSchoolExcel> batchSchoolExcels);
+    SchoolDataCheckResult check(List<BatchSchoolExcel> batchSchoolExcels);
 
 }

@@ -26,4 +26,9 @@ public class SimilarResult {
      * 相似分数值
      */
     private double similarScore;
+
+    /**
+     * 最相近词语
+     */
+    private String similarWord;
 }

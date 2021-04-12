@@ -15,3 +15,7 @@ spring:
             connection-timeout: 30000
             connection-test-query: SELECT 1
 logback.path: /${log.path}/${spring.application.name}
+redis:
+    enable: true
+    host: localhost
+    port: 6379

@@ -13,7 +13,7 @@ import com.kill.core.properties.DrugProperties;
 import com.kill.core.service.IProjectPathService;
 import com.kill.core.service.PubMessageService;
 import com.kill.core.service.UtilTestService;
-import com.kill.core.service.impl.process.entity.AnalysisResult;
+import com.kill.core.service.impl.process.entity.SchoolDataCheckResult;
 import com.kill.core.utils.IpUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,7 +30,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -130,7 +129,7 @@ public class UtilTestController {
 
     @PostMapping("/analysis")
     @ApiOperation("数据比对分解")
-    public AnalysisResult analysisDataList(MultipartFile file){
+    public SchoolDataCheckResult analysisDataList(MultipartFile file){
         return utilTestService.analysisDataList(file);
     }
 
