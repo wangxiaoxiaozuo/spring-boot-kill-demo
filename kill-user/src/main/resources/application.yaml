@@ -1,0 +1,19 @@
+server:
+    port: 9004
+    servlet:
+        context-path: '/user'
+
+web:
+    swagger:
+        base-package-path: com.kill.core.controller
+        tittle: '秒杀-用户服务'
+
+spring:
+    profiles:
+        active: local
+    application:
+        name: kill-user
+    cloud:
+        nacos:
+            discovery:
+                server-addr: localhost:8848

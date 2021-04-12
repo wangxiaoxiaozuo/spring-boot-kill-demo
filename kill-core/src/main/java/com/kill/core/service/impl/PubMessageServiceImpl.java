@@ -5,8 +5,6 @@ import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.google.common.base.Charsets;
@@ -37,7 +35,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 /**
@@ -86,7 +83,7 @@ public class PubMessageServiceImpl implements PubMessageService {
     }
 
     @Override
-    public String getAuthToken() throws Exception {
+    public String getAuthToken() {
         String url = StrUtil.format(PushMessageConstant.GET_TOKEN_URL, PushMessageConstant.APPID, PushMessageConstant.APP_SECRET);
         WeChatToken weChatToken = restTemplate.getForObject(url, WeChatToken.class);
         return weChatToken.getAccess_token();

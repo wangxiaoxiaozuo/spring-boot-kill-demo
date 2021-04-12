@@ -24,6 +24,7 @@
         <module>kill-shopping-cart</module>
         <module>kill-common-api</module>
         <module>kill-gateway</module>
+        <module>kill-user</module>
     </modules>
 
     <dependencyManagement>

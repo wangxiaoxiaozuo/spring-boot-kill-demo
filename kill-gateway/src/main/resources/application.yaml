@@ -16,6 +16,10 @@ spring:
                   uri: lb://kill-shopping-cart
                   predicates:
                       - Path= /cart/**
+                - id: kill-user
+                  uri: lb://kill-user
+                  predicates:
+                      - Path= /user/**
         nacos:
             discovery:
                 server-addr: localhost:8848
