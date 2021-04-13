@@ -25,6 +25,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+
+        <dependency>
+            <groupId>wj.demo</groupId>
+            <artifactId>kill-auto-mybatis-config-starter</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

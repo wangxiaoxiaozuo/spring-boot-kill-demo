@@ -3,6 +3,7 @@ package com.kill.core.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
+import cn.hutool.core.io.FileUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kill.core.annotation.IpLimit;
@@ -26,8 +27,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -127,9 +130,27 @@ public class UtilTestController {
     }
 
 
+    @GetMapping("/file")
+    @ApiOperation("FileUtils工具测试")
+    public void testFileUtils(HttpServletResponse response) throws IOException {
+//        File[] fileList = FileUtil.ls("/Users/wangjian/Desktop/");
+//        for (File file : fileList) {
+//
+//            System.out.println(FileUtil.extName(file));
+////            log.info("fileName:\n{}", file.getName());
+//        }
+
+        String readUtf8String = FileUtil.readUtf8String(new File("/Users/wangjian/Desktop/古诗词.text"));
+        System.out.println(readUtf8String);
+
+        ServletOutputStream outputStream = response.getOutputStream();
+        FileUtil.writeToStream(new File("/Users/wangjian/Desktop/古诗词.text"),outputStream);
+    }
+
+
     @PostMapping("/analysis")
     @ApiOperation("数据比对分解")
-    public SchoolDataCheckResult analysisDataList(MultipartFile file){
+    public SchoolDataCheckResult analysisDataList(MultipartFile file) {
         return utilTestService.analysisDataList(file);
     }
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kill.core.mapper.SysUserMapper">
+
+    <resultMap id="userMap" type="com.kill.core.entity.vo.SysUserVo">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="real_name" property="realName"/>
+        <result column="sex" property="sex"/>
+        <result column="phone" property="phone"/>
+        <result column="mail" property="mail"/>
+        <result column="locked" property="locked"/>
+
+        <collection property="roleList" ofType="com.kill.core.entity.SysRole">
+            <!-- 定义这个集合中元素的封装规则 -->
+            <id column="role_id" property="roleId"/>
+            <result column="role_name" property="roleName"/>
+            <result column="role_code" property="roleCode"/>
+        </collection>
+    </resultMap>
+
+    <select id="getUserAndRoleList" resultMap="userMap">
+        SELECT
+        su.*,
+        sr.*
+        FROM
+        sys_user su
+        LEFT JOIN sys_user_role sur ON su.user_id = sur.user_id
+        LEFT JOIN sys_role sr ON sur.role_id = sr.role_id
+        <where>
+            <if test="condition!=null and condition!=''">
+                su.user_name like CONCAT('%','${condition}','%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getRoleList" resultType="com.kill.core.entity.SysRole" parameterType="integer">
+        SELECT
+            sr.*
+        FROM
+            sys_user_role sur
+            LEFT JOIN sys_role sr ON sur.role_id = sr.role_id
+        WHERE sur.user_id = #{userId}
+    </select>
+
+    <select id="getPathByRoleName" resultType="com.kill.core.entity.SysResource" parameterType="string">
+        SELECT
+            sr.menu_id,sr.path
+        FROM
+            sys_role_resource srr
+            LEFT JOIN sys_resource sr ON srr.resource_id= sr.menu_id
+        WHERE
+            sr.menu_id is not null and
+            srr.role_id IN (
+            SELECT
+                sr.role_id
+            FROM
+                sys_role sr
+            WHERE
+                sr.role_code = #{roleName}
+            )
+    </select>
+
+    <select id="getOwnMenuByUserId" resultType="com.kill.core.entity.SysResource">
+        SELECT
+            *
+        FROM
+            sys_resource
+        WHERE
+            menu_id IN (
+            SELECT
+                resource_id
+            FROM
+                sys_role_resource
+            WHERE
+            role_id IN ( SELECT role_id FROM sys_user_role WHERE user_id = #{userId} )
+            )
+    </select>
+</mapper>
