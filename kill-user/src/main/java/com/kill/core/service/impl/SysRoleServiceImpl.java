@@ -9,7 +9,6 @@ import com.kill.core.mapper.SysRoleMapper;
 import com.kill.core.service.ISysRoleResourceService;
 import com.kill.core.service.ISysRoleService;
 import com.kill.core.utils.Constants;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,9 +24,9 @@ import java.util.List;
  * @since 2019-12-26
  */
 @Service
-@AllArgsConstructor
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements ISysRoleService {
 
+    @Autowired
     private ISysRoleResourceService sysRoleResourceService;
 
 
@@ -52,7 +51,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
                 .eq(SysRole::getRoleName, sysRole.getRoleName())
                 .eq(SysRole::getRoleCode, sysRole.getRoleCode());
         List<SysRole> roleList = this.baseMapper.selectList(wrapper);
-//        VerifyException.CollectIsNotNull(roleList, "该权限已经存在");
         this.baseMapper.insert(sysRole);
     }
 }

@@ -59,12 +59,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>wj.demo</groupId>
-            <artifactId>kill-common-api</artifactId>
-            <version>1.0.0.0.1</version>
-        </dependency>
-
         <!-- easy poi -->
         <dependency>
             <groupId>cn.afterturn</groupId>

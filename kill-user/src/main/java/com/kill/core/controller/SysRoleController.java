@@ -1,8 +1,8 @@
 package com.kill.core.controller;
 
 
-import com.kill.core.entity.SysRole;
-import com.kill.core.service.ISysRoleService;
+import com.mall.admin.entity.SysRole;
+import com.mall.admin.service.ISysRoleService;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

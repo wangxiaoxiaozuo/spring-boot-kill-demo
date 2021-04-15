@@ -23,7 +23,7 @@ public class GeneratorConfigData {
     /**
      * 表名称
      */
-    private String[] tableNames = new String[]{"train_school"};
+    private String[] tableNames = new String[]{"sys_resource"};
     /**
      * 项目前缀
      */
@@ -47,10 +47,10 @@ public class GeneratorConfigData {
     /**
      * 数据库连接
      */
-//    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/kill-demo?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/kill-demo?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
 //    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/ocr_data?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
 //    private String dataSourceUrl = "jdbc:p6spy:mysql://120.221.160.3:33061/new_ihp_further?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
-    private String dataSourceUrl = "jdbc:mysql://10.10.50.72:3306/train_project_center?generateSimpleParameterMetadata=true&amp&useSSL=false";
+//    private String dataSourceUrl = "jdbc:mysql://10.10.50.72:3306/train_project_center?generateSimpleParameterMetadata=true&amp&useSSL=false";
 
     /**
      * 数据库驱动
@@ -60,12 +60,12 @@ public class GeneratorConfigData {
     /**
      * 数据库用户名
      */
-    private String dataSourceUserName = "srt_dt";
+    private String dataSourceUserName = "root";
 
     /**
      * 数据库密码
      */
-    private String dataSourcePassword = "t81Qxr2EZ8ws";
+    private String dataSourcePassword = "123456";
 
     /**
      * 模板文件存储位置

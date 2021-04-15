@@ -31,7 +31,6 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysResource> implements ISysResourceService {
 
-
     private SysUserMapper sysUserMapper;
 
     @Override

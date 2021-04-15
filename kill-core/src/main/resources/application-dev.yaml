@@ -2,7 +2,7 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-        url: jdbc:mysql://10.10.50.72:3306/train_project_center?generateSimpleParameterMetadata=true&amp&useSSL=false
+        url: jdbc:mysql://10.10.50.72:3306/kill_demo?generateSimpleParameterMetadata=true&amp&useSSL=false
         username: srt_dt
         password: t81Qxr2EZ8ws
         hikari:

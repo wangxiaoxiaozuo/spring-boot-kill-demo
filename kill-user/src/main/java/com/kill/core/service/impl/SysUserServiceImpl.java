@@ -38,7 +38,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void grantUserRole(Integer userId, List<Integer> roleIds) {
-//        VerifyException.CollectIsNull(roleIds, "权限为空，无法授权");
         // 1.清空原本的权限
         LambdaQueryWrapper<SysUserRole> wrapper =
             Wrappers.<SysUserRole>lambdaQuery()

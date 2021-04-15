@@ -1,7 +1,7 @@
 package com.kill.core.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.kill.core.entity.MallCategory;
+import com.mall.admin.entity.MallCategory;
 
 /**
  * <p>
