@@ -2,7 +2,7 @@ package com.kill.core.entity.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.mall.admin.entity.SysRole;
+import com.kill.core.entity.SysRole;
 import lombok.Data;
 
 import java.io.Serializable;

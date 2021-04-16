@@ -1,0 +1,13 @@
+server:
+    port: 9005
+    servlet:
+        context-path: /code
+spring:
+    profiles:
+        active: local
+    application:
+        name: kill-code
+    cloud:
+        nacos:
+            discovery:
+                server-addr: localhost:8848

@@ -1,13 +1,13 @@
-package service.impl;
+package com.kill.core.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import entity.GeneratorConfigData;
+import com.kill.core.entity.GeneratorConfigData;
 import lombok.AllArgsConstructor;
-import service.CodeGeneratorService;
+import com.kill.core.service.CodeGeneratorService;
 
 import java.util.ArrayList;
 import java.util.HashMap;

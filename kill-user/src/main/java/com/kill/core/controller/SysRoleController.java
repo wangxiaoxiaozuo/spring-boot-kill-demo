@@ -1,8 +1,9 @@
 package com.kill.core.controller;
 
 
-import com.mall.admin.entity.SysRole;
-import com.mall.admin.service.ISysRoleService;
+import com.kill.core.entity.SysRole;
+import com.kill.core.service.ISysRoleService;
+import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/sysRole")
 @AllArgsConstructor
+@Api(tags = "角色管理")
 public class SysRoleController {
 
     private ISysRoleService sysRoleService;

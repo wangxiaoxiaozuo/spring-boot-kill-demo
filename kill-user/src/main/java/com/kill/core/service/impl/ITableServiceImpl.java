@@ -1,5 +1,6 @@
 package com.kill.core.service.impl;
 
+import com.kill.core.entity.TableInfo;
 import com.kill.core.mapper.TableMapper;
 import com.kill.core.service.ITableService;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class ITableServiceImpl implements ITableService {
 
 
     @Override
-    public List<String> getTableNameList() {
+    public List<TableInfo> getTableNameList() {
         return tableMapper.getTableNameList();
     }
 }

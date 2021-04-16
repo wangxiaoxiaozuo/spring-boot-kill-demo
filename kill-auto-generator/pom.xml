@@ -13,6 +13,17 @@
     <description>秒杀项目代码自动生成</description>
 
     <dependencies>
+
+        <dependency>
+            <groupId>wj.demo</groupId>
+            <artifactId>kill-auto-web-config-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>

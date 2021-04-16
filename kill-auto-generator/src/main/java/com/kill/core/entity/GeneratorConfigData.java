@@ -1,4 +1,4 @@
-package entity;
+package com.kill.core.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

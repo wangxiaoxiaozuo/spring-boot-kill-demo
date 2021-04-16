@@ -3,8 +3,8 @@ package com.kill.core.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.mall.admin.entity.SysRoleResource;
-import com.mall.admin.service.ISysRoleResourceService;
+import com.kill.core.entity.SysRoleResource;
+import com.kill.core.service.ISysRoleResourceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

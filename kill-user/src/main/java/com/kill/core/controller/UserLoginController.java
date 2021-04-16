@@ -1,9 +1,7 @@
 package com.kill.core.controller;
 
-import com.kill.core.entity.KillUser;
 import com.kill.core.entity.SysResource;
 import com.kill.core.entity.UserLoginParams;
-import com.kill.core.service.IKillUserService;
 import com.kill.core.service.ISysResourceService;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
@@ -31,13 +29,10 @@ public class UserLoginController {
 
     private ISysResourceService sysResourceService;
 
-    private IKillUserService killUserService;
 
     @PostMapping("/login")
     public Integer userLogin(UserLoginParams params) {
         System.out.println(params.toString());
-        List<KillUser> list = killUserService.list();
-        System.out.println(list.toString());
         return 1;
     }
 

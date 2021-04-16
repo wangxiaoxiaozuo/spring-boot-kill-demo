@@ -1,4 +1,4 @@
-package service;
+package com.kill.core.service;
 
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
