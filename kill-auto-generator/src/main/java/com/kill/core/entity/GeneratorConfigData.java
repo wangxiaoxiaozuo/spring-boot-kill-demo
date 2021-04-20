@@ -23,7 +23,7 @@ public class GeneratorConfigData {
     /**
      * 表名称
      */
-    private String[] tableNames = new String[]{"sys_resource"};
+    private String[] tableNames = new String[]{"data_source_manager"};
     /**
      * 项目前缀
      */

@@ -20,6 +20,10 @@ spring:
                   uri: lb://kill-user
                   predicates:
                       - Path= /user/**
+                - id: kill-code
+                  uri: lb://kill-code
+                  predicates:
+                      - Path= /code/**
         nacos:
             discovery:
                 server-addr: localhost:8848

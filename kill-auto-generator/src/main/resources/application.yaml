@@ -11,3 +11,7 @@ spring:
         nacos:
             discovery:
                 server-addr: localhost:8848
+web:
+    swagger:
+        base-package-path: com.kill.core.controller
+        tittle: '代码生成服务'

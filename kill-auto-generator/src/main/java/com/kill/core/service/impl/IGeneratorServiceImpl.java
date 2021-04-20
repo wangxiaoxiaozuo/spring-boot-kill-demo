@@ -23,8 +23,28 @@ public class IGeneratorServiceImpl implements IGeneratorService {
 
     @Override
     public void codeGenerator(String tableName) {
+//        GeneratorConfigData generatorConfigData = new GeneratorConfigData();
+//        generatorConfigData.setTableNames(new String[]{tableName});
+//        CodeGeneratorService codeGeneratorService = new CodeGeneratorServiceImpl(generatorConfigData);
+//        // 全局配置
+//        new AutoGenerator().setGlobalConfig(codeGeneratorService.createGeneratorConfig())
+//            // 数据源配置
+//            .setDataSource(codeGeneratorService.createDatasourceConfig())
+//            // 文件配置
+//            .setPackageInfo(codeGeneratorService.createPackageConfig())
+//            // 使用模板配置
+//            .setTemplate(codeGeneratorService.createTemplateConfig())
+//            .setCfg(codeGeneratorService.createInjectionConfig())
+//            // 策略配置
+//            .setStrategy(codeGeneratorService.createStrategyConfig())
+//            // 模板引擎配置
+//            .setTemplateEngine(new FreemarkerTemplateEngine())
+//            // 执行
+//            .execute();
+    }
+
+    public static void main(String[] args) {
         GeneratorConfigData generatorConfigData = new GeneratorConfigData();
-        generatorConfigData.setTableNames(new String[]{tableName});
         CodeGeneratorService codeGeneratorService = new CodeGeneratorServiceImpl(generatorConfigData);
         // 全局配置
         new AutoGenerator().setGlobalConfig(codeGeneratorService.createGeneratorConfig())
