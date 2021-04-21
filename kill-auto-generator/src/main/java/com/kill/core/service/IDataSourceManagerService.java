@@ -2,6 +2,10 @@ package com.kill.core.service;
 
 import com.kill.core.entity.DataSourceManager;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.kill.core.entity.TableInfo;
+import com.kill.core.entity.params.DataSourceManagerParams;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IDataSourceManagerService extends IService<DataSourceManager> {
 
+    void saveDataSource(DataSourceManagerParams dataSourceManagerParams);
+
+    List<TableInfo> getTableListByDataSourceId(Integer dataSourceId);
 }

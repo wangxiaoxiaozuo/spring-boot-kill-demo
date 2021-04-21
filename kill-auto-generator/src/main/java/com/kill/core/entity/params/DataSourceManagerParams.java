@@ -1,14 +1,15 @@
-package com.kill.core.entity;
+package com.kill.core.entity.params;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -21,48 +22,24 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class DataSourceManager implements Serializable {
+@ApiModel(value="DataSourceManagerParams", description="")
+public class DataSourceManagerParams implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "data_source_id", type = IdType.AUTO)
     private Integer dataSourceId;
 
-    /**
-     * 数据源名称
-     */
+    @ApiModelProperty(value = "数据源名称")
     private String dataSourceName;
 
-    /**
-     * 数据源路径
-     */
+    @ApiModelProperty(value = "数据源路径")
     private String dataSourceUrl;
 
-    /**
-     * 用户名
-     */
+    @ApiModelProperty(value = "用户名")
     private String dataUserName;
 
-    /**
-     * 用户密码
-     */
+    @ApiModelProperty(value = "用户密码")
     private String dataUserPassword;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updateTime;
-
-    /**
-     * 删除
-     */
-    @TableLogic
-    private Integer deleted;
-
 
 }
