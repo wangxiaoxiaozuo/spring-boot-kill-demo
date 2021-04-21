@@ -10,7 +10,7 @@ web:
 
 spring:
   profiles:
-    active: local
+    active: prod
   application:
     name: kill-core
   mvc:

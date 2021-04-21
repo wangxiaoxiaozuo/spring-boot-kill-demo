@@ -45,8 +45,8 @@ public class DataSourceManagerServiceImpl extends ServiceImpl<DataSourceManagerM
 
         HikariConfig configuration = new HikariConfig();
         configuration.setJdbcUrl(dataSourceManager.getDataSourceUrl());
-        configuration.setPassword(dataSourceManager.getDataUserName());
-        configuration.setUsername(dataSourceManager.getDataUserPassword());
+        configuration.setPassword(dataSourceManager.getDataUserPassword());
+        configuration.setUsername(dataSourceManager.getDataUserName());
         configuration.setDriverClassName(DbConstant.MYSQL_DRIVER);
         List<TableInfo> tableInfoList = new ArrayList<>();
 

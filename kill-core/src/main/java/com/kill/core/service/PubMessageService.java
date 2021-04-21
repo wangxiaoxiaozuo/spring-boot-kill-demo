@@ -20,4 +20,6 @@ public interface PubMessageService {
     String createOrderNumber();
 
     void exportBatchErrorExcel(HttpServletResponse response, String batchNum);
+
+    void isContainSchool();
 }

@@ -20,8 +20,19 @@
         <dependency>
             <groupId>wj.demo</groupId>
             <artifactId>kill-auto-mybatis-config-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.46</version>
+        </dependency>
         <dependency>
             <groupId>wj.demo</groupId>
             <artifactId>kill-common-data</artifactId>

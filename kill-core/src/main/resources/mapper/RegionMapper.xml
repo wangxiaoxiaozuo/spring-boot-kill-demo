@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kill.core.mapper.RegionMapper">
+
+    <select id="getAllSchool" resultType="com.kill.core.entity.TrainSchoolDO">
+        select
+            school_name schoolName,
+            prov_id provinceCode,
+            city_id cityCode,
+            area_id countryCode
+        from school where `status` = 1 AND yn = 1
+    </select>
+
+
+</mapper>

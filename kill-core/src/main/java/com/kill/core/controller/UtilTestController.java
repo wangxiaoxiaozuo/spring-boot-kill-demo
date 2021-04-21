@@ -86,6 +86,12 @@ public class UtilTestController {
         return projectPathService.testDubbo();
     }
 
+    @GetMapping("/school")
+    @ApiOperation("学校是否包含测试")
+    public void isContainSchool(){
+        pubMessageService.isContainSchool();
+    }
+
     @GetMapping("/sub/{openId}")
     @ApiOperation("SpringBoot消息订阅测试")
     public String sendSubMessage(@PathVariable String openId) {
