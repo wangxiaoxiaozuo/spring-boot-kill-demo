@@ -48,9 +48,7 @@ public class GeneratorConfigData {
      * 数据库连接
      */
 //    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/kill-demo?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
-//    private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/ocr_data?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
-//    private String dataSourceUrl = "jdbc:p6spy:mysql://120.221.160.3:33061/new_ihp_further?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
-    private String dataSourceUrl = "jdbc:mysql://10.10.50.72:3306/train_project_center?generateSimpleParameterMetadata=true&amp&useSSL=false";
+      private String dataSourceUrl = "jdbc:mysql://127.0.0.1:3306/ocr_data?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
 
     /**
      * 数据库驱动
